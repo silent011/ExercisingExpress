@@ -1,0 +1,23 @@
+{
+  "name": "expressex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "7.10.0"
+  },
+  "scripts": {
+    "test": "standard && node index.js",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "express": "4.15.3",
+    "express-handlebars": "3.0.0",
+    "mongoose": "4.10.5"
+  }
+}
