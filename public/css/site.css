@@ -1,0 +1,21 @@
+html{
+    background:#414141;
+    color:white;
+}
+form{
+    width:30%;
+    display: flex;
+    flex-flow: column;
+    margin:40px auto;
+    align-items: center;
+}
+label{
+    width:90%;
+    padding: 20px;
+}
+input{
+    width:70%;
+}
+input[type="submit"]{
+    width:30%;
+}
