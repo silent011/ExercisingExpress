@@ -8,6 +8,26 @@
     <title>ExpressEx</title>
 </head>
 <body>
-    {{{body}}}
+    <header>
+        <nav>
+            <ul class="right-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+            <ul class="left-nav">
+                <li><a href="/user/login">Login</a></li>
+                {{#if currentUser}}
+                    <li>{{currentUser.username}}</li>
+                {{else}}
+                    <li><a href="/user/register">Register</a></li>
+                {{/if}}
+                {{#if globalError}}
+                    <h3>{{globalError}}</h3>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
 </body>
 </html>

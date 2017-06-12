@@ -6,5 +6,8 @@ let app = express()
 require('./server/config/database')(settings)
 require('./server/config/express.config')(app)
 require('./server/config/routes')(app)
+require('./server/config/passport')()
 
 app.listen(settings.port)
+
+// User.seedAdmin()

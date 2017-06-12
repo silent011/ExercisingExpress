@@ -3,5 +3,5 @@ const user = require('./user-controller')
 
 module.exports = {
   home: home,
-  user:user
+  user: user
 }

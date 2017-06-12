@@ -1,3 +1,7 @@
+/*---------------------
+    Generic tag styling
+-----------------------*/
+
 html{
     background:#414141;
     color:white;
@@ -18,4 +22,23 @@ input{
 }
 input[type="submit"]{
     width:30%;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+
+/*---------------------
+    HEADER NAVIGATION
+-----------------------*/
+nav>ul{
+    display: flex;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+nav>ul>li{
+    list-style: none;
+    padding:0 20px;
 }
