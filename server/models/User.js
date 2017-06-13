@@ -13,16 +13,14 @@ let userSchema = mongoose.Schema({
   posts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Article'}]
 })
 
-
 userSchema.method({
-  authenticate : function (password) {
-  console.log('here')
-  if (enc.generateHashPass(this.salt, password) === this.password) {
-    
-    return true
+  authenticate: function (password) {
+    console.log('here')
+    if (enc.generateHashPass(this.salt, password) === this.password) {
+      return true
+    }
+    return false
   }
-  return false
-}
 })
 
 let User = mongoose.model('User', userSchema)
@@ -43,7 +41,5 @@ User.seedAdmin = () => {
     })
   })
 }
-
-
 
 module.exports = User

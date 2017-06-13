@@ -12,20 +12,23 @@
         <nav>
             <ul class="right-nav">
                 <li><a href="/">Home</a></li>
+                <li><a href="/articles">Articles</a></li>
             </ul>
             <ul class="left-nav">
-                <li><a href="/user/login">Login</a></li>
                 {{#if currentUser}}
                     <li>{{currentUser.username}}</li>
+                    <li><a href="/user/logout">Log out</a></li>
                 {{else}}
                     <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Login</a></li>
                 {{/if}}
-                {{#if globalError}}
-                    <h3>{{globalError}}</h3>
-                {{/if}}
+                
             </ul>
         </nav>
     </header>
+    {{#if globalError}}
+                    <h3 class="error">{{globalError}}</h3>
+                {{/if}}
     <main>
         {{{body}}}
     </main>

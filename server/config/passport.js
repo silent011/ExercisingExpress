@@ -4,10 +4,10 @@ const User = require('mongoose').model('User')
 
 module.exports = () => {
   passport.use(new LocalPassport((username, password, done) => {
-     console.log('here passport')
+    console.log('here passport')
     User.findOne({username}).then(user => {
-     
-      if (!user) {return done(null, false)}
+      console.log('passport here')
+      if (!user) { return done(null, false) }
       if (!user.authenticate(password)) { return done(null, false) }
       return done(null, user)
     })
