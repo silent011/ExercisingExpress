@@ -1,1 +1,1 @@
-# ExersizingExpress
+# ExercisingExpress
