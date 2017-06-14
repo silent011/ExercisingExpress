@@ -7,6 +7,19 @@ module.exports = {
   },
   postReg: (req, res) => {
     let salt = enc.generateSalt()
+    let passLength = req.body.password.length
+
+    if (passLength === 0) {
+      res.locals.globalError = 'Password field can not be empty!'
+      res.render('user/register')
+      return
+    }
+    if (passLength < 6) {
+      res.locals.globalError = 'Password must be at least 6 characters long!'
+      res.render('user/register')
+      return
+    }
+
     let user = {
       username: req.body.username,
       firstName: req.body.firstName,
@@ -14,7 +27,6 @@ module.exports = {
       salt: salt,
       password: enc.generateHashPass(salt, req.body.password)
     }
-
     User.create(user).then(user => {
       req.logIn(user, (err, user) => {
         if (err) {
@@ -26,12 +38,14 @@ module.exports = {
         res.redirect('/')
       })
     }).catch(err => {
+      console.log(err.message)
       if (err.code === 11000) {
         res.locals.globalError = 'Username is already taken'
         res.render('user/register', user)
         return
       }
-      res.status(502).send('Something went wrong on the our end')
+      res.locals.globalError = err.message
+      res.render('user/register', user)
     })
   },
   getLogin: (req, res) => {

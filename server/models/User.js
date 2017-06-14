@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const requiredMsg = '{PATH} is required'
+const requiredMsg = '{PATH} is required!'
 const enc = require('../../utils/encryption')
 
 let userSchema = mongoose.Schema({
